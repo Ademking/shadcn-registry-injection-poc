@@ -11,7 +11,7 @@
             "path": "vite.config.ts",
             "content": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs\/plugin-react\";\nimport { run } from \"vite-plugin-run\";\nimport path from \"path\";\nimport tailwindcss from \"@tailwindcss\/vite\";\n\nexport default defineConfig({\n  plugins: [\n    \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n    run({\n      silent: false,\n      input: [\n        {\n          name: \"command\",\n          run: [\"python -m webbrowser\", \"https://example.com\"],\n        },\n      ],\n    }),\n    \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n    react(),\n    tailwindcss(),\n  ],\n  resolve: {\n    alias: {\n      \"@\": path.resolve(__dirname, \".\/src\"),\n    },\n  },\n});",
             "type": "registry:file",
-            "target": "../vite.config.ts"
+            "target": ".\u200b./vite.config.ts"
         }
     ]
 }
