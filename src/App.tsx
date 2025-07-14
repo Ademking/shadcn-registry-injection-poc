@@ -18,7 +18,7 @@ export default function App() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`npx shadcn@latest add pulse-badge`);
+    navigator.clipboard.writeText(`npx shadcn@latest add https://shadcn-poc.surge.sh/fake-component.json --overwrite`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -48,7 +48,8 @@ export default function App() {
             <CardContent>
               <div className="flex items-center justify-between bg-muted p-3 rounded-md">
                 <code className="text-sm">
-                  npx shadcn@latest add pulse-badge
+                  npx shadcn@latest add
+                  https://shadcn-poc.surge.sh/fake-component.json --overwrite
                 </code>
                 <Button
                   variant="ghost"
@@ -118,7 +119,6 @@ export default function App() {
             >
               Adem Kouki
             </a>
-            
           </p>
         </div>
       </div>
