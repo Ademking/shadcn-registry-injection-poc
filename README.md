@@ -5,6 +5,10 @@
 
 ---
 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dteGNxAe5Vc/0.jpg)](https://www.youtube.com/watch?v=dteGNxAe5Vc)
+
+
 ## ⚠️ Disclaimer
 
 This repository is created solely for educational and awareness purposes to demonstrate how a registry injection attack could compromise projects by injecting malicious code through dependencies and configuration files.  
