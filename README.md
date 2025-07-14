@@ -8,6 +8,8 @@
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dteGNxAe5Vc/0.jpg)](https://www.youtube.com/watch?v=dteGNxAe5Vc)
 
+## DEMO: [https://shadcn-poc.surge.sh](https://shadcn-poc.surge.sh)
+
 
 ## ⚠️ Disclaimer
 
